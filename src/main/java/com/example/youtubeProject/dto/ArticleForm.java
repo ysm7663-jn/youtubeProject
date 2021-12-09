@@ -1,16 +1,26 @@
 package com.example.youtubeProject.dto;
 
 import com.example.youtubeProject.entity.Article;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
+@AllArgsConstructor
+@ToString
 public class ArticleForm {
 
     private String title;
     private String content;
 
-    public ArticleForm(String title, String content) {
+    /*
+    @AllArgsConstructor로 대체
+   public ArticleForm(String title, String content) {
         this.title = title;
         this.content = content;
     }
+    */
+
+    /*
+    @ToString으로 대체
 
     @Override
     public String toString() {
@@ -19,6 +29,7 @@ public class ArticleForm {
                 ", content='" + content + '\'' +
                 '}';
     }
+     */
 
     public Article toEntity() {
         return new Article(null, title, content);
