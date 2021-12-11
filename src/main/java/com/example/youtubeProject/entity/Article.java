@@ -1,6 +1,7 @@
 package com.example.youtubeProject.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.Id;
 @Entity // DB가 해당 객체를 인식 가능
 @AllArgsConstructor
 @ToString
+@NoArgsConstructor // 디폴트 생성자 생성자
 public class Article {
 
     @Id
