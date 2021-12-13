@@ -11,6 +11,7 @@ public class ArticleForm {
     private Long id;
     private String title;
     private String content;
+    private String author;
 
     /*
     @AllArgsConstructor로 대체
@@ -33,6 +34,6 @@ public class ArticleForm {
      */
 
     public Article toEntity() {
-        return new Article(id, title, content);
+        return new Article(id, title, content, author);
     }
 }
