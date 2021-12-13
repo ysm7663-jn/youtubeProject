@@ -28,6 +28,9 @@ public class Article {
     @Column
     private String content;
 
+    @Column
+    private String Author;
+
     /*
     @Getter
     public Long getId() {
