@@ -24,26 +24,26 @@ public class ArticleApiController {
     @Autowired // DI
     private ArticleRepository articleRepository;
 
-    // GET
+    // 1-1. GET
     @GetMapping("/api/articles")
     public List<Article> index() {
         return articleRepository.findAll();
     }
 
-    // 단일 GET
+    // 1-2. 단일 GET
     @GetMapping("/api/articles/{id}")
     public Article index(@PathVariable Long id) {
         return articleRepository.findById(id).orElse(null);
     }
 
-    // POST
+    // 2. POST
     @PostMapping("/api/articles")
     public Article create(@RequestBody ArticleForm dto) {
         Article article = dto.toEntity();
         return articleRepository.save(article);
     }
 
-    // PATCH
+    // 3. PATCH
     @PatchMapping("/api/articles/{id}")
     public ResponseEntity<Article> update (@PathVariable Long id,
                                      @RequestBody ArticleForm dto) {
@@ -69,6 +69,7 @@ public class ArticleApiController {
         return ResponseEntity.status(HttpStatus.OK).body(updated);
     }
 
+    // 4. Delete
     @DeleteMapping("/api/articles/{id}")
     public ResponseEntity<Article> delete(@PathVariable Long id) {
 
