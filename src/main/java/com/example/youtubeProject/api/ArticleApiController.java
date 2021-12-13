@@ -42,7 +42,7 @@ public class ArticleApiController {
         return articleRepository.save(article);
     }
 
-    // PATH
+    // PATCH
     @PatchMapping("/api/articles/{id}")
     public ResponseEntity<Article> update (@PathVariable Long id,
                                      @RequestBody ArticleForm dto) {
