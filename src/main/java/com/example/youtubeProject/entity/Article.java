@@ -31,6 +31,16 @@ public class Article {
     @Column
     private String author;
 
+    public void patch(Article article) {
+        // 값의 변경이 없을 경우 기존 값 유감
+        if (article.title != null)
+            this.title = article.title;
+        if (article.content != null)
+            this.content = article.content;
+        if (article.author != null)
+            this.author = article.author;
+    }
+
     /*
     @Getter
     public Long getId() {
