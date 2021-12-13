@@ -21,6 +21,22 @@ import java.util.List;
 @Slf4j
 public class ArticleApiController {
 
+    /*
+        Status code :
+        Successful : 200(ok) / 201(create)
+        Client Error : 404(Not Found)
+        Server Error : 500(Internet Server Error)
+
+        RestAPI란?
+        : 웹 서버의 자원을 client에 구애받지 않고 사용할 수 있게 해주는 설계 방식, http를 통해 서버의 자원을 다루게 하는 방식
+        : 모든 기기에서 통용될 수 있는 화면이 아닌 데이터 만을 반환
+        : 과거 xml이었지만 최근 JSON으로 사용
+
+        JSON??
+        : JavaScript 방식을 차용한 객체 표현식
+
+     */
+
     @Autowired // DI
     private ArticleRepository articleRepository;
 
