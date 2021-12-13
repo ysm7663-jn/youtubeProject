@@ -1,6 +1,6 @@
 package com.example.youtubeProject.api;
 
-import com.example.youtubeProject.dto.ArticleForm;
+import com.example.youtubeProject.dto.ArticleDto;
 import com.example.youtubeProject.entity.Article;
 import com.example.youtubeProject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -54,7 +54,7 @@ public class ArticleApiController {
 
     // 2. POST
     @PostMapping("/api/articles")
-    public Article create(@RequestBody ArticleForm dto) {
+    public Article create(@RequestBody ArticleDto dto) {
         Article article = dto.toEntity();
         return articleRepository.save(article);
     }
@@ -62,7 +62,7 @@ public class ArticleApiController {
     // 3. PATCH
     @PatchMapping("/api/articles/{id}")
     public ResponseEntity<Article> update (@PathVariable Long id,
-                                     @RequestBody ArticleForm dto) {
+                                     @RequestBody ArticleDto dto) {
 
         // 1. 수정용 엔티티 생성
         Article article = dto.toEntity();
