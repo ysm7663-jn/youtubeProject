@@ -12,11 +12,11 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @Getter
-public class User {
+public class UserDto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long user_id;
+    private Long userId;
 
     @Column
     private String name;
