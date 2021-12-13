@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,5 +67,21 @@ public class ArticleApiController {
         target.patch(article); // 업데이트에 값이 변경이 없거나 공백인 경우 기존 값을 그대로 가져감
         Article updated = articleRepository.save(target);
         return ResponseEntity.status(HttpStatus.OK).body(updated);
+    }
+
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Article> delete(@PathVariable Long id) {
+
+        // 1. 대상 찾기
+        Article target = articleRepository.findById(id).orElse(null);
+
+        // 2. 잘못된 요청 처리
+        if (target == null) {
+            return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(null);
+        }
+
+        // 3. 대상 삭제
+        articleRepository.delete(target);
+        return ResponseEntity.status(HttpStatus.OK).build();
     }
 }
