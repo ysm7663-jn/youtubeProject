@@ -5,6 +5,7 @@
     <!-- form 태그는 get / post 만 제공 -->
 
     <input name="id" type="hidden" value="{{id}}" />
+    <input name="author" type="hidden" value="{{author}}" />
 
     <div class="mb-3">
         <label class="form-label">제목</label>
@@ -14,6 +15,11 @@
     <div class="mb-3">
         <label class="form-label"></label>
         <textarea class="form-controller" rows="3" name="content">{{content}}</textarea>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">작성자</label>
+        <input type="text" class="form-controller" name="author" value="{{author}}" readonly>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
