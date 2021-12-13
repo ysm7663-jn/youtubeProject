@@ -59,7 +59,7 @@ public class ArticleController {
         // 2. 가져온 데이터를 모델에 등록
         model.addAttribute("article", articleEntity);
 
-        // 3. 보여줄 페이지를 설
+        // 3. 보여줄 페이지를 설정
       return "articles/show";
     }
 
