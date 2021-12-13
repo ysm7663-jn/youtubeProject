@@ -29,7 +29,7 @@ public class Article {
     private String content;
 
     @Column
-    private String Author;
+    private String author;
 
     /*
     @Getter
