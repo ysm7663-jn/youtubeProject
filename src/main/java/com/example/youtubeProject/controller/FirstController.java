@@ -9,19 +9,6 @@ public class FirstController {
 
     @GetMapping("/")
     public String index() {
-        return "WellCome";
+        return "greetings";
     }
-
-    @GetMapping("/hi")  // 연결
-    public String greetings(Model model) {
-        model.addAttribute("username", "ysm");
-        return "greetings"; // templates/greetings.mustache -> 브라우저로 전송
-    }
-
-    @GetMapping("/bye")
-    public String seeYa(Model model) {
-        model.addAttribute("nickname", "daniel");
-        return "seeYa";
-    }
-
 }
