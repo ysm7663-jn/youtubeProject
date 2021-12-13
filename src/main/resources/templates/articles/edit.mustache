@@ -1,7 +1,10 @@
 {{>layouts/header}}
 
 {{#article}}
-<form class="containers" action="" method="post">
+<form class="containers" action="/articles/update" method="post">
+    <!-- form 태그는 get / post 만 제공 -->
+
+    <input name="id" type="hidden" value="{{id}}" />
 
     <div class="mb-3">
         <label class="form-label">제목</label>
