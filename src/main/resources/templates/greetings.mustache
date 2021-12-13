@@ -13,17 +13,17 @@ bootstrap 사용전
     <title>Document</title>
 </head>
 <body>
-    <h3>{{username}}님, 반갑습니다!</h3>
+    <h3>님, 반갑습니다!</h3>
 </body>
 </html>
 -->
 
 <!-- 사용후 -->
 {{>layouts/header}}
-<!-- content -->
-<div class="bg-dark text-white p-5">
-    <h3>{{username}}님, 반갑습니다!!</h3>
-</div>
+
+    <a href="/articles/index" class="btn btn-info">목록 화면 이동</a>
+    <a href="/users/login" class="btn btn-primary">로그인 화면 이동</a>
+
 {{>layouts/footer}}
 
 
