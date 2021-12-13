@@ -1,6 +1,6 @@
 package com.example.youtubeProject.controller;
 
-import com.example.youtubeProject.dto.ArticleForm;
+import com.example.youtubeProject.dto.ArticleDto;
 import com.example.youtubeProject.entity.Article;
 import com.example.youtubeProject.repository.ArticleRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -27,7 +27,7 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/create")
-    public String createArticle(ArticleForm form){
+    public String createArticle(ArticleDto form){
         // System.out.println(form.toString());
         // 실제 프로그램에선 성능을 저하시키니 '로깅' 으로 대체
         // 로깅 : 블랙박스 처럼 기록을 남김
@@ -62,7 +62,7 @@ public class ArticleController {
       return "articles/show";
     }
 
-    @GetMapping("/articles")
+    @GetMapping("/articles/index")
     public String index(Model model) {
 
         // 1. 모든 article을 가져온다
@@ -93,7 +93,7 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/update")
-    public String update(ArticleForm form) {
+    public String update(ArticleDto form) {
 
         log.info(form.toString());
 
