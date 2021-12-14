@@ -1,30 +1,21 @@
 package com.example.youtubeProject.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.example.youtubeProject.entity.User;
+import lombok.AllArgsConstructor;
+import lombok.ToString;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
-@Entity
-@NoArgsConstructor
-@Getter
+@AllArgsConstructor
+@ToString
 public class UserDto {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long userNo;
+    private String userId;
+    private String userPw;
+    private String userName;
+    private String userAge;
+    private String userTel;
 
-    @Column
-    private String name;
-
-    @Column
-    private String age;
-
-    @Column
-    private String tel;
-
+    public User toEntity() {
+        return new User(userNo, userId, userPw, userName, userAge, userTel);
+    }
 }
