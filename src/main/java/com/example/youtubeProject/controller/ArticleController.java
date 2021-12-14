@@ -27,15 +27,15 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/create")
-    public String createArticle(ArticleDto form){
+    public String createArticle(ArticleDto dto){
         // System.out.println(form.toString());
         // 실제 프로그램에선 성능을 저하시키니 '로깅' 으로 대체
         // 로깅 : 블랙박스 처럼 기록을 남김
 
-        log.info(form.toString());
+        log.info(dto.toString());
 
         // 1. Dto를 Entity로 변환
-        Article article = form.toEntity();
+        Article article = dto.toEntity();
         // System.out.println(article.toString());
         log.info(article.toString());
 
@@ -93,12 +93,12 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/update")
-    public String update(ArticleDto form) {
+    public String update(ArticleDto dto) {
 
-        log.info(form.toString());
+        log.info(dto.toString());
 
         // 1. DTO를 Entity로 변환
-        Article articleEntity = form.toEntity();
+        Article articleEntity = dto.toEntity();
         log.info(articleEntity.toString());
 
         // 2. Entity를 DB로 저장
