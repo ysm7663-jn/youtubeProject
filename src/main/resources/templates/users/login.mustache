@@ -1,5 +1,18 @@
 {{>layouts/header}}
 
-    <h3>로그인 화면입니다.</h3>
+    <div class="mb-3">
+        <label class="form-label">ID</label>
+        <input type="text" class="form-controller" name="ID">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">PW</label>
+        <input type="password" class="form-controller" name="PW">
+    </div>
+
+<!-- 정보가 있는지 확인 후 이동 -->
+<a href="/articles/index" class="btn btn-success">로그인</a>
+
+<a href="/users/new" class="btn btn-primary">회원가입</a>
 
 {{>layouts/footer}}
