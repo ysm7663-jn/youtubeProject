@@ -1,40 +1,46 @@
 {{>layouts/header}}
 
 <form class="containers" action="/users/createId" method="post">
+
+    <!-- 중복확인 -->
     <div class="mb-3">
         <label class="form-label">ID</label>
         <input type="text" class="form-controller" name="userId">
     </div>
-
-
 
     <div class="mb-3">
         <label class="form-label">비밀번호</label>
         <input type="password" class="form-controller" name="userPw">
     </div>
 
-
+    <!-- 비밀번호 확인
+    <div class="mb-3">
+        <label class="form-label">비밀번호 확인</label>
+        <input type="password" class="form-controller">
+    </div>
+    -->
 
     <div class="mb-3">
         <label class="form-label">이름</label>
         <input type="text" class="form-controller" name="userName">
     </div>
 
-
-
     <div class="mb-3">
         <label class="form-label">생년월일</label>
         <input type="text" class="form-controller" name="userAge">
     </div>
-
-
 
     <div class="mb-3">
         <label class="form-label">전화번호</label>
         <input type="text" class="form-controller" name="userTel">
     </div>
 
-
+    <!-- 이메일 인증
+    <div class="mb-3">
+        <label class="form-label">이메일 인증</label>
+        <input type="text" class="form-controller" name="userEmail">
+    </div>
+    -->
 
     <button type="submit" class="btn btn-primary">회원가입</button>
     <a href="/users/login">돌아가기</a>
