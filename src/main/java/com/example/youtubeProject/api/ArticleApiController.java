@@ -3,6 +3,7 @@ package com.example.youtubeProject.api;
 import com.example.youtubeProject.dto.ArticleDto;
 import com.example.youtubeProject.entity.Article;
 import com.example.youtubeProject.repository.ArticleRepository;
+import com.example.youtubeProject.service.ArticleService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,63 @@ public class ArticleApiController {
 
      */
 
+    @Autowired  // DI, 생성 객체를 가져와 연결
+    private ArticleService articleService;
+
+    // GET
+    // 1-1. 전체 GET
+    @GetMapping("/api/articles")
+    public List<Article> index() {
+        return articleService.index();
+    }
+
+    // 1-2. 단일 GET
+    @GetMapping("/api/articles/{id}")
+    public Article show(@PathVariable Long id) {
+        return articleService.show(id);
+    }
+
+    // 2. POST
+    @PostMapping("/api/articles")
+    public ResponseEntity<Article> create(@RequestBody ArticleDto dto) {
+        Article created = articleService.create(dto);
+        return (created != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(created) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+    // 3. PATCH
+    @PatchMapping("/api/articles/{id}")
+    public ResponseEntity<Article> update (@PathVariable Long id,
+                                           @RequestBody ArticleDto dto) {
+
+        Article updated = articleService.update(id, dto);
+        return (updated != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(updated) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+    // 4. Delete
+    @DeleteMapping("/api/articles/{id}")
+    public ResponseEntity<Article> delete(@PathVariable Long id) {
+        Article deleted = articleService.delete(id);
+        return (deleted != null) ?
+                ResponseEntity.status(HttpStatus.NO_CONTENT).build() :
+                ResponseEntity.status(HttpStatus.BAD_GATEWAY).build();
+    }
+
+    // 트랜잭션 => 실패 -> 롤백
+    @PostMapping("/api/transaction-test")
+    public ResponseEntity<List<Article>> transactionTest(@RequestBody List<ArticleDto> dtos) {
+
+        List<Article> createList = articleService.createArticles(dtos);
+
+        return (createList != null) ?
+                ResponseEntity.status(HttpStatus.OK).body(createList) :
+                ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    }
+
+    /*
     @Autowired // DI
     private ArticleRepository articleRepository;
 
@@ -101,4 +159,5 @@ public class ArticleApiController {
         articleRepository.delete(target);
         return ResponseEntity.status(HttpStatus.OK).build();
     }
+     */
 }
