@@ -2,6 +2,7 @@ package com.example.youtubeProject.dto;
 
 import com.example.youtubeProject.entity.Article;
 import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @AllArgsConstructor
