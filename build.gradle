@@ -22,7 +22,7 @@ dependencies {
 	runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-	implementation 'com.fasterxml.jackson.module:jackson-module-parameter-names:2.10.3'
+	//implementation 'com.fasterxml.jackson.module:jackson-module-parameter-names:2.10.3'
 }
 
 test {
