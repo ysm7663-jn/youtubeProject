@@ -54,7 +54,6 @@ public class ArticleService {
             log.info("잘못된 요청! id : {}, article : {}", id, article.toString());
             return null;
         }
-
         // 4. 업데이트 및 정상 응답(200)
         target.patch(article); // 업데이트에 값이 변경이 없거나 공백인 경우 기존 값을 그대로 가져감
         Article updated = articleRepository.save(target);
