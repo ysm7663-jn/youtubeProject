@@ -81,7 +81,6 @@ public class ArticleService {
         List<Article> articleList = dtos.stream()
                 .map(dto -> dto.toEntity())
                 .collect(Collectors.toList());
-
         /*
             List<Article> articleList = new ArrayList<>();
             for (int i = 0; i < dtos.size(); i++) {
