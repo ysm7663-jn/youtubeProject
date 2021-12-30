@@ -76,7 +76,6 @@ public class ArticleService {
 
     @Transactional  // 해당 메소드를 트랜젝션으로 묶는다
     public List<Article> createArticles(List<ArticleDto> dtos) {
-
         // 1. dto 묶음을 entity 묶음으로 변환
         List<Article> articleList = dtos.stream()
                 .map(dto -> dto.toEntity())
